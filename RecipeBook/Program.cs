@@ -14,7 +14,7 @@ namespace RecipeBook
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<RecipeBookContext>(
+      builder.Services.AddDbContext<RecipeBoxContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
@@ -23,7 +23,7 @@ namespace RecipeBook
                       );
 
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<RecipeBookContext>()
+                .AddEntityFrameworkStores<RecipeBoxContext>()
                 .AddDefaultTokenProviders();
 
       WebApplication app = builder.Build();
