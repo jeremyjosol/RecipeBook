@@ -42,7 +42,7 @@ namespace RecipeBook.Controllers
         IdentityResult result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
-          return RedirectToAction("Index");
+          return RedirectToAction("Success");
         }
         else
         {
@@ -87,6 +87,11 @@ namespace RecipeBook.Controllers
     {
       await _signInManager.SignOutAsync();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Success()
+    {
+      return View();
     }
   }
 }
