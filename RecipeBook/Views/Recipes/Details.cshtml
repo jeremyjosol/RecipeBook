@@ -4,11 +4,13 @@
 
 @using RecipeBook.Models
 @model RecipeBook.Models.Recipe
+@using System.Collections.Generic;
 
 <h2>Recipe Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>  
 <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Ingredients): @Html.DisplayFor(model => model.Ingredients)</h3></h4>
 
 @if(@Model.JoinEntities.Count == 0)
 {

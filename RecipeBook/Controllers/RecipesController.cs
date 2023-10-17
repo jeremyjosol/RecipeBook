@@ -34,9 +34,10 @@ namespace RecipeBook.Controllers
       return View(userRecipes);
     }
 
-    public ActionResult Create()
+    public ActionResult Create(Recipe recipe)
     {
       ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      ViewBag.Ingredients = recipe.Ingredients.ToArray();
       return View();
     }
 
@@ -118,5 +119,23 @@ namespace RecipeBook.Controllers
       }
       return RedirectToAction("Details", new { id = recipe.RecipeId });
     }  
+
+    public ActionResult DeleteJoin(int joinId)
+    {
+      RecipeTag joinEntry = _db.RecipeTags.FirstOrDefault(entry => entry.RecipeTagId == joinId);
+      _db.RecipeTags.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult Search(string searchRecipes)
+    {
+      List<Recipe> searchResults = _db.Recipes
+                                       .Where(recipe =>
+                                        recipe.Name.Contains(searchRecipes) ||
+                                        recipe.Ingredients.Contains(searchRecipes))
+                                       .ToList();
+    return View("Search", searchResults);
+    }
   }
 }

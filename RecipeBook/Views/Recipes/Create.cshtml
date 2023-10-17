@@ -3,6 +3,7 @@
 }
 
 @model RecipeBook.Models.Recipe
+@using System.Collections.Generic;
 
 <h4>Add a new recipe</h4>
 
@@ -15,9 +16,11 @@
   @Html.TextBoxFor(model => model.Ingredients, new { placeholder = "Ingredients" })
   @Html.TextBoxFor(model => model.Instructions, new { placeholder = "Instructions" })
 
+
   @Html.LabelFor(model => model.Category)
   @Html.DropDownList("CategoryId")
 
   <input type="submit" value="Add new recipe" class="btn btn-default" />
 }
 <p>@Html.ActionLink("Show all recipes", "Index")</p>
+
