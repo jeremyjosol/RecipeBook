@@ -10,7 +10,7 @@
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>  
 <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
-<h3>@Html.DisplayNameFor(model => model.Ingredients): @Html.DisplayFor(model => model.Ingredients)</h3></h4>
+<h3>@Html.DisplayNameFor(model => model.Ingredients): @Html.DisplayFor(model => model.Ingredients)</h3>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -26,7 +26,7 @@ else
       @using (Html.BeginForm("DeleteJoin", "Recipes"))
       {
         @Html.Hidden("joinId", @join.RecipeTagId)
-        <input type="submit" value="Delete"/>
+        <input type="submit" value="Remove"/>
       }
     }
   </ul>
