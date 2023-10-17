@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RecipeBook.Models
+namespace RecipeBox.Models
 {
-  public class RecipeBookContext : IdentityDbContext<ApplicationUser>
+  public class RecipeBoxContext : IdentityDbContext<ApplicationUser>
   {
-    public RecipeBookContext(DbContextOptions options) : base(options) { }
+    public RecipeBoxContext(DbContextOptions options) : base(options) { }
   }
 }

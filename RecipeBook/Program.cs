@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using RecipeBook.Models;
 
-namespace ToDoList
+namespace RecipeBook
 {
   class Program
   {
