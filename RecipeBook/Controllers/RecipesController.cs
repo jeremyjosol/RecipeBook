@@ -9,8 +9,9 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-namespace ToDoList.Controllers
+namespace RecipeBook.Controllers
 {
+  [Authorize]
   public class RecipesController : Controller
   {
     private readonly RecipeBoxContext _db;
@@ -28,7 +29,7 @@ namespace ToDoList.Controllers
       ApplicationUser currentUser = await _userManager.FindByIdAsync(userId);
       List<Recipe> userRecipes = _db.Recipes
                             .Where(entry => entry.User.Id == currentUser.Id)
-                            .Include(item => item.Category) 
+                            .Include(recipe => recipe.Category) 
                             .ToList();
       return View(userRecipes);
     }
@@ -87,7 +88,7 @@ namespace ToDoList.Controllers
       Recipe thisRecipe = _db.Recipes.FirstOrDefault(recipe => recipe.RecipeId == id);
       return View(thisRecipe);
     }
-    
+
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
