@@ -4,12 +4,12 @@ namespace RecipeBook.ViewModels
 {
   public class LoginViewModel
   {
-    [Required]
+    [Required(ErrorMessage = "* Please fill the Email Address field.")]
     [EmailAddress]
     [Display(Name = "Email Address")]
     public string Email { get; set; }
     
-    [Required]
+    [Required(ErrorMessage = "* Please fill out the Password field.")]
     [DataType(DataType.Password)]
     public string Password { get; set; }
   }

@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RecipeBook.styles.css" asp-append-version="true" />
-    @using (Html.BeginForm("Search", "Recipes"))
-    {
-        @Html.TextBox("searchRecipes", null, new { placeholder = "Search by Name or Ingredient" })
-        <button type="submit">Search</button>
-    }
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">RecipeBook</a>
+                @using (Html.BeginForm("Search", "Recipes"))
+                {
+                    <div class="input-group">
+                        @Html.TextBox("searchRecipes", null, new { placeholder = "Overnight Oats", @class = "form-control" })
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,7 +44,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container-footer">
             &copy; 2023 - RecipeBook - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

@@ -8,7 +8,7 @@
 
 <h2>Category Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayFor(model => model.Name)</h3>
 
 @if(@Model.Recipes.Count == 0)
 {
@@ -16,14 +16,12 @@
 }
 else
 {
-  <h4>Recipes in this category:</h4>
-  <ul>
   @foreach(Recipe recipe in Model.Recipes)
   {
     string tags = "";
     @if(recipe.JoinEntities.Count == 0)
     {
-      tags = "This item does not have any tags.";
+      tags = null;
     }
     else
     {
@@ -34,7 +32,8 @@ else
       }
       tags = String.Join(", ", tagList);
     }
-    <li>@recipe.Ingredients | Tags: @tags</li>
+    <h4>@Html.ActionLink($"{recipe.Name}", "Details", "Recipes", new { id = recipe.RecipeId })</h4>
+    <p>@recipe.Ingredients</p>
+    <p>#@tags</p>
   }
-  </ul>
 }

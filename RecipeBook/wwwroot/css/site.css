@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -28,10 +29,31 @@ a:hover {
   color: rgb(47, 255, 200);
 }
 
+/* .container {
+  width: 450px;
+  max-width: 100vw;
+  background-color: rgba(153, 153, 153, 0.279);
+  border-radius: 25px;
+} */
+
 .form-control {
+  margin: auto;
   width: 250px;
 }
 
 .btn {
   width: 250px;
+}
+
+.btn-primary {
+  width: 80px;
+}
+
+.btn-danger {
+  width: 80px;
+}
+
+footer {
+  margin: auto;
+  margin-top: 10px;
 }

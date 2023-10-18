@@ -13,7 +13,7 @@
 
 @foreach (Tag tag in Model)
 {
-  <li>@Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })</li>
+  <p>#@Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })</p>
 }
 
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

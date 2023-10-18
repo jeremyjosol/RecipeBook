@@ -76,7 +76,7 @@ namespace RecipeBook.Controllers
         }
         else
         {
-          ModelState.AddModelError("", "There is something wrong with your email or username. Please try again.");
+          ModelState.AddModelError("*", "There is something wrong with your email or username. Please try again.");
           return View(model);
         }
       }

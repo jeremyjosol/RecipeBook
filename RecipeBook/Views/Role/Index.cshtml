@@ -11,10 +11,9 @@
     ViewData["Title"] = "ROLES";
 }
   
-<h1 class="bg-info text-white">All Roles</h1>
-<a href="/Role/Create" class="btn btn-secondary">Create a Role</a>
+<h1 class="bg-secondary text-white">All Roles</h1>
   
-<table class="table table-sm table-bordered table-bordered">
+<table class="table table-sm table-bordered table-bordered text-white">
   <tr><th>ID</th><th>Name</th><th>Users</th><th>Assign</th><th>Delete</th></tr>
     @foreach (KeyValuePair<IdentityRole, List<ApplicationUser>> role in Model)
     {
@@ -27,7 +26,6 @@
             <p>@user.UserName</p>
           }
         </td>
-            @* <td i-role="@role.Key.Id"></td> *@
         <td><a class="btn btn-sm btn-primary" href="/Role/Assign" asp-route-id="@role.Key.Id">Assign</a></td>
           <td>
             <form asp-action="Delete" asp-route-id="@role.Key.Id" method="post">
@@ -39,3 +37,4 @@
       </tr>
     }
 </table>
+<a href="/Role/Create" class="btn btn-outline-success">Create a Role</a>
