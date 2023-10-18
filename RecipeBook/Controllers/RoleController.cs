@@ -28,13 +28,29 @@ namespace RecipeBook.Controllers
           return await _userManager.IsInRoleAsync(user, roleName);
         }
 
+        // public ViewResult Index()
+        // {
+        //   ViewBag.Roles = _roleManager.Roles.ToList();
+        //   ViewBag.Users = _userManager.Users.ToList();
+    
+        //   return View();
+        // }
+
         public ViewResult Index()
         {
-          ViewBag.Roles = _roleManager.Roles.ToList();
-          ViewBag.Users = _userManager.Users.ToList();
-    
-          return View();
+          List<IdentityRole> roles = _roleManager.Roles.ToList();
+          Dictionary<IdentityRole, List<ApplicationUser>> usersWithRole = new Dictionary<IdentityRole, List<ApplicationUser>>();
+
+          foreach (IdentityRole role in roles)
+          {
+            List<ApplicationUser> usersInRole = _userManager.GetUsersInRoleAsync(role.Name).Result.ToList();
+            usersWithRole.Add(role, usersInRole);
+          }
+
+          return View(usersWithRole);
         }
+
+
 
         private void Errors(IdentityResult result)
         {

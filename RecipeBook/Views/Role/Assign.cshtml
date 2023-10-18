@@ -1,3 +1,7 @@
+@{
+  Layout = "_Layout";
+}
+
 @model IEnumerable<IdentityRole>
 @using System.Collections.Generic;
 @using RecipeBook.Models;
@@ -27,4 +31,4 @@
     <button type="submit" class="btn btn-primary">Assign Role</button>
 }
 
-<a asp-action="Index" class="btn btn-secondary">Back to Roles</a>
+<a href="/Role" class="btn btn-secondary">Back to Roles</a>

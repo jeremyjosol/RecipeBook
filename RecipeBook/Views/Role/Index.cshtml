@@ -1,6 +1,8 @@
-<p>Hello, World!</p>
+@{
+  Layout = "_Layout";
+}
 
-@model IEnumerable<IdentityRole>
+@model Dictionary<IdentityRole, List<ApplicationUser>>
 @using System.Collections.Generic;
 @using RecipeBook.Models;
 @using Microsoft.AspNetCore.Identity;
@@ -10,25 +12,25 @@
 }
   
 <h1 class="bg-info text-white">All Roles</h1>
-<a asp-action="Create" class="btn btn-secondary">Create a Role</a>
+<a href="/Role/Create" class="btn btn-secondary">Create a Role</a>
   
 <table class="table table-sm table-bordered table-bordered">
-    <tr><th>ID</th><th>Name</th><th>Users</th><th>Update</th><th>Delete</th></tr>
-    @foreach (IdentityRole role in ViewBag.Roles)
+    <tr><th>ID</th><th>Name</th><th>Users</th><th>Assign</th><th>Delete</th></tr>
+    @foreach (KeyValuePair<IdentityRole, List<ApplicationUser>> role in Model)
     {
         <tr>
-            <td>@role.Id</td>
-            <td>@role.Name</td>
+            <td>@role.Key.Id</td>
+            <td>@role.Key.Name</td>
             <td>
-              @foreach (ApplicationUser user in ViewBag.Roles)
+                @foreach (ApplicationUser user in role.Value)
                 {
                   <p>@user.UserName</p>
-                }
+                  }
             </td>
-            <td i-role="@role.Id"></td>
-            <td><a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@role.Id">Update</a></td>
+            @* <td i-role="@role.Key.Id"></td> *@
+            <td><a class="btn btn-sm btn-primary" href="/Role/Assign" asp-route-id="@role.Key.Id">Assign</a></td>
             <td>
-                <form asp-action="Delete" asp-route-id="@role.Id" method="post">
+                <form asp-action="Delete" asp-route-id="@role.Key.Id" method="post">
                     <button type="submit" class="btn btn-sm btn-danger">
                         Delete
                     </button>
