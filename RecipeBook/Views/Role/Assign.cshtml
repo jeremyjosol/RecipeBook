@@ -16,19 +16,19 @@
 
 @using (Html.BeginForm("Assign", "Role", FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
+  @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        <label for="UserId">Select a User:</label>
-        @Html.DropDownList("UserId", ViewBag.UsersList as SelectList, "Select a User", new { @class = "form-control" })
-    </div>
+  <div class="form-group">
+    <label for="UserId">Select a User:</label>
+      @Html.DropDownList("UserId", ViewBag.UsersList as SelectList, "Select a User", new { @class = "form-control" })
+  </div>
 
-    <div class="form-group">
-        <label for="RoleName">Select a Role:</label>
-        @Html.DropDownList("RoleName", ViewBag.RolesList as SelectList, "Select a Role", new { @class = "form-control" })
-    </div>
+  <div class="form-group">
+    <label for="RoleName">Select a Role:</label>
+      @Html.DropDownList("RoleName", ViewBag.RolesList as SelectList, "Select a Role", new { @class = "form-control" })
+  </div>
 
-    <button type="submit" class="btn btn-primary">Assign Role</button>
+  <button type="submit" class="btn btn-primary">Assign Role</button>
 }
 
 <a href="/Role" class="btn btn-secondary">Back to Roles</a>
