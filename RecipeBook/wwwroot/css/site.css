@@ -18,3 +18,20 @@ body {
   background-color: black;
   color: white;
 }
+
+a {
+  text-decoration: none;
+  color: rgb(0, 200, 255);
+}
+
+a:hover {
+  color: rgb(47, 255, 200);
+}
+
+.form-control {
+  width: 250px;
+}
+
+.btn {
+  width: 250px;
+}

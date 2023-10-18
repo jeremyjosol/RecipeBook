@@ -16,13 +16,11 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(m => m.Email)
-  @Html.TextBoxFor(m => m.Email)
-
-  @Html.LabelFor(m => m.Password)
-  @Html.EditorFor(m => m.Password)
-
-  <input type="submit" value="Log in" />
+  @Html.TextBoxFor(m => m.Email, new { placeholder = "Email Address", @class = "form-control" })
+  <br />
+  @Html.EditorFor(m => m.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control" }})
+  <br />
+  <input class="btn btn-outline-success type="submit" value="Log in" />
 }
 
 <p>@Html.ActionLink("Register for an account", "Register")</p>

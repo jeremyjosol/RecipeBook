@@ -13,12 +13,10 @@
 {
   <p>No categories have been added yet!</p>
 } 
-<ul>
   @foreach (Category cat in Model["categories"])
   {
-    <li>@Html.ActionLink(@cat.Name, "Details", "Categories", new { id = @cat.CategoryId})</li>
+    <p>@Html.ActionLink(@cat.Name, "Details", "Categories", new { id = @cat.CategoryId})</p>
   }
-</ul>
 
 @if (User.Identity.IsAuthenticated)
 {
@@ -27,12 +25,10 @@
   {
     <p>No recipes have been added yet!</p>
   } 
-  <ul>
     @foreach (Recipe recipe in Model["recipes"])
     {
-      <li>@Html.ActionLink(@recipe.Name, "Details", "Recipes", new { id = @recipe.RecipeId})</li>
+      <p>@Html.ActionLink(@recipe.Name, "Details", "Recipes", new { id = @recipe.RecipeId})</p>
     }
-  </ul>
 }
 else
 {

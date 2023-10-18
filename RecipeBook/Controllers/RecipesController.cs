@@ -22,6 +22,7 @@ namespace RecipeBook.Controllers
       _userManager = userManager;
       _db = db;
     }
+    
     [AllowAnonymous]
     public async Task<ActionResult> Index()
     {

@@ -16,16 +16,13 @@
 
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-  @Html.LabelFor(user => user.Email)
-  @Html.TextBoxFor(user => user.Email)
-
-  @Html.LabelFor(user => user.Password)
-  @Html.EditorFor(user => user.Password)
-
-  @Html.LabelFor(user => user.ConfirmPassword)
-  @Html.EditorFor(user => user.ConfirmPassword)
-
-  <input type="submit" value="Register" />
+  @Html.TextBoxFor(user => user.Email, new { placeholder = "Email Address", @class = "form-control" })
+  <br />
+  @Html.EditorFor(user => user.Password, new { htmlAttributes= new { placeholder = "Password", @class = "form-control" }})
+  <br />
+  @Html.EditorFor(user => user.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm Password", @class = "form-control" }})
+  <br />
+  <input class="btn btn-outline-success" type="submit" value="Register" />
 }
 
 <p>@Html.ActionLink("Back to accounts page", "Index")</p>
