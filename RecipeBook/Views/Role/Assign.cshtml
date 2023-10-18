@@ -1,0 +1,30 @@
+@model IEnumerable<IdentityRole>
+@using System.Collections.Generic;
+@using RecipeBook.Models;
+@using Microsoft.AspNetCore.Identity;
+
+
+@{
+    ViewData["Title"] = "Assign Roles";
+}
+
+<h1 class="bg-info text-white">Assign Roles</h1>
+
+@using (Html.BeginForm("Assign", "Role", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="UserId">Select a User:</label>
+        @Html.DropDownList("UserId", ViewBag.UsersList as SelectList, "Select a User", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="RoleName">Select a Role:</label>
+        @Html.DropDownList("RoleName", ViewBag.RolesList as SelectList, "Select a Role", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Assign Role</button>
+}
+
+<a asp-action="Index" class="btn btn-secondary">Back to Roles</a>

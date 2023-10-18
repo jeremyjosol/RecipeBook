@@ -1,10 +1,16 @@
-@model Microsoft.AspNetCore.Identity.IdentityRole  
-@{  
-    ViewData["Title"] = "Create";  
-}  
+@model string
+@{
+    ViewData["Title"] = "CREATE ROLE";
+}
   
-<h1>Create</h1>  
-<form method="post">  
-    <input type="text" asp-for="Name" />  
-    <input type="submit" name="submit" value="submit" />  
-</form>  
+<h1 class="bg-info text-white">Create a Role</h1>
+<a asp-action="Index" class="btn btn-secondary">Back</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+  
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
