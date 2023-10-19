@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace RecipeBook.Controllers
 {
-  [Authorize(Roles = "Admin")]
+  [Authorize(Roles = "Admin, Manager, Member")]
   public class RecipesController : Controller
   {
     private readonly RecipeBoxContext _db;

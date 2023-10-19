@@ -66,7 +66,7 @@ namespace RecipeBook.Controllers
       ViewBag.UsersList = new SelectList(users, "Id", "UserName");
       return View();
     }
-
+   
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Assign(string UserId, string RoleName)
