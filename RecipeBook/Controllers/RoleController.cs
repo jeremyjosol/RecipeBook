@@ -28,6 +28,7 @@ namespace RecipeBook.Controllers
       ModelState.AddModelError("", error.Description);
     }
 
+    [Authorize(Roles = "Admin")]
     public ViewResult Index()
     {
       List<IdentityRole> roles = _roleManager.Roles.ToList();

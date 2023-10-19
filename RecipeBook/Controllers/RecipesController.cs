@@ -38,7 +38,6 @@ namespace RecipeBook.Controllers
     public ActionResult Create(Recipe recipe)
     {
       ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
-      ViewBag.Ingredients = recipe.Ingredients.ToArray();
       return View();
     }
 

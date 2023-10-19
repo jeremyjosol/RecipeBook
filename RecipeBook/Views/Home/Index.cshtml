@@ -8,19 +8,9 @@
 
 <hr />
 
-<h4>Categories</h4>
-@if (Model["categories"].Length == 0)
-{
-  <p>No categories have been added yet!</p>
-} 
-  @foreach (Category cat in Model["categories"])
-  {
-    <p>@Html.ActionLink(@cat.Name, "Details", "Categories", new { id = @cat.CategoryId})</p>
-  }
-
 @if (User.Identity.IsAuthenticated)
 {
-  <h4>Recipes for @User.Identity.Name</h4>
+  <h4>Hi, @User.Identity.Name</h4>
   @if (Model["recipes"].Length == 0)
   {
     <p>No recipes have been added yet!</p>
@@ -32,13 +22,17 @@
 }
 else
 {
-  <h4>Recipes</h4>
+  <h2>Recipes</h2>
   <p>Please @Html.ActionLink("log in", "LogIn", "Account") to view or manage your recipes.</p>
 }
 
-<hr />
-
-<p>@Html.ActionLink("Manage recipes", "Index", "Recipes")</p> 
-<p>@Html.ActionLink("Manage categories", "Index", "Categories")</p>
-<p>@Html.ActionLink("Manage tags", "Index", "Tags")</p>
-<p>@Html.ActionLink("Create or manage an account", "Index", "Account")</p>
+<br />
+<h2>Categories</h2>
+@if (Model["categories"].Length == 0)
+{
+  <p>No categories have been added yet!</p>
+} 
+  @foreach (Category cat in Model["categories"])
+  {
+    <p>@Html.ActionLink(@cat.Name, "Details", "Categories", new { id = @cat.CategoryId})</p>
+  }

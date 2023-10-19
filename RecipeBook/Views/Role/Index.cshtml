@@ -11,10 +11,10 @@
     ViewData["Title"] = "ROLES";
 }
   
-<h1 class="bg-secondary text-white">All Roles</h1>
+<h1 class="text-white">All Roles</h1>
   
 <table class="table table-sm table-bordered table-bordered text-white">
-  <tr><th>ID</th><th>Name</th><th>Users</th><th>Assign</th><th>Delete</th></tr>
+  <tr><th>ID</th><th>Name</th><th>Users</th>
     @foreach (KeyValuePair<IdentityRole, List<ApplicationUser>> role in Model)
     {
       <tr>
@@ -26,9 +26,14 @@
             <p>@user.UserName</p>
           }
         </td>
-        <td><a class="btn btn-sm btn-primary" href="/Role/Assign/">Assign</a></td>
-        <td><a class="btn btn-sm btn-danger" href="/Role/Delete">Delete</a></td>
       </tr>
     }
 </table>
-<a href="/Role/Create" class="btn btn-outline-success">Create a Role</a>
+
+<h2>Manage Roles</h2>
+<hr />
+<a href="/Role/Create" class="btn btn-dark">Create a Role</a>
+<br />
+<a class="btn btn btn-dark" href="/Role/Assign/">Assign a Role</a>
+<br />
+<a class="btn btn-outline-danger" href="/Role/Delete">Delete a Role</a>

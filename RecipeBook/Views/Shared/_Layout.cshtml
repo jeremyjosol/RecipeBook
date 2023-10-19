@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RecipeBook</title>
@@ -16,9 +19,9 @@
                 @using (Html.BeginForm("Search", "Recipes"))
                 {
                     <div class="input-group">
-                        @Html.TextBox("searchRecipes", null, new { placeholder = "Overnight Oats", @class = "form-control" })
+                        @Html.TextBox("searchRecipes", null, new { placeholder = "Overnight Oats", @class = "form-control", style = "width: 135px;" })
                         <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">Search</button>
+                            <button class="btn btn-dark" style = "width: 75px; margin-left: 5px;" type="submit">Search</button>
                         </div>
                     </div>
                 }
@@ -29,8 +32,19 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
+                        <h6>@Html.ActionLink("Recipes", "Index", "Recipes")</h6> 
                         </li>
                         <li class="nav-item">
+                            <h6>@Html.ActionLink("Categories", "Index", "Categories")<h6>
+                        </li>
+                        <li class="nav-item">
+                            <h6>@Html.ActionLink("Tags", "Index", "Tags")</h6>
+                        </li>
+                        <li class="nav-item">
+                            <h6>@Html.ActionLink("Account", "Index", "Account")</h6>
+                        </li>
+                        <li class="nav-item">
+                            <h6>@Html.ActionLink("Admin Portal", "Index", "Role")</h6>
                         </li>
                     </ul>
                 </div>
