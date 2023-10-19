@@ -1,0 +1,34 @@
+@{
+  Layout = "_Layout";
+}
+
+@model IEnumerable<IdentityRole>
+@using System.Collections.Generic;
+@using RecipeBook.Models;
+@using Microsoft.AspNetCore.Identity;
+
+
+@{
+    ViewData["Title"] = "Delete Roles";
+}
+
+<h1 class="bg-info text-white">Delete Roles</h1>
+
+@using (Html.BeginForm("Delete", "Role", FormMethod.Post))
+{
+  @Html.AntiForgeryToken()
+
+  <div class="form-group">
+    <label for="UserId">Select a User:</label>
+      @Html.DropDownList("UserId", ViewBag.UsersList as SelectList, "Select a User", new { @class = "form-control" })
+  </div>
+
+  <div class="form-group">
+    <label for="RoleName">Select a Role:</label>
+      @Html.DropDownList("RoleName", ViewBag.RolesList as SelectList, "Select a Role", new { @class = "form-control" })
+  </div>
+
+  <button type="submit" class="btn btn-primary">Delete Role</button>
+}
+
+<a href="/Role" class="btn btn-secondary">Back to Roles</a>

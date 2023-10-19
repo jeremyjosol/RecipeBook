@@ -27,13 +27,7 @@
           }
         </td>
         <td><a class="btn btn-sm btn-primary" href="/Role/Assign" asp-route-id="@role.Key.Id">Assign</a></td>
-          <td>
-            <form asp-action="Delete" asp-route-id="@role.Key.Id" method="post">
-            <button type="submit" class="btn btn-sm btn-danger">
-            Delete
-            </button>
-            </form>
-          </td>
+        <td><a class="btn btn-sm btn-danger" href="/Role/Delete" asp-route-id="@role.Key.Id">Delete</a></td>
       </tr>
     }
 </table>
