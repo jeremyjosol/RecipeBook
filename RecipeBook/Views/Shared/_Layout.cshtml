@@ -16,21 +16,23 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-black border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">RecipeBook</a>
-                @using (Html.BeginForm("Search", "Recipes"))
-                {
-                    <div class="input-group">
-                        @Html.TextBox("searchRecipes", null, new { placeholder = "Overnight Oats", @class = "form-control", style = "width: 135px;" })
-                        <div class="input-group-append">
-                            <button class="btn btn-dark" style = "width: 75px; margin-left: 5px;" type="submit">Search</button>
-                        </div>
-                    </div>
-                }
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            @using (Html.BeginForm("Search", "Recipes"))
+                            {
+                                <div class="input-group">
+                                    @Html.TextBox("searchRecipes", null, new { placeholder = "Overnight Oats", @class = "form-control", style = "width: 135px;" })
+                                    <div class="input-group-append">
+                                    <button class="btn btn-dark" style = "width: 75px; margin-left: 5px;" type="submit">Search</button>
+                                    </div>
+                                </div>
+                            }
+                        </li>
                         <li class="nav-item">
                         <h6>@Html.ActionLink("Recipes", "Index", "Recipes")</h6> 
                         </li>

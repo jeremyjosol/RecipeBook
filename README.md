@@ -4,6 +4,10 @@
 
 This is a simple Recipe Book website that allows users to create an account to post and share recipes online. As registered members, users gain exclusive access to share their favorite recipes, organizing them into specific categories catered to their culinary preferences. 
 
+<html>
+<img src="RecipeBook/wwwroot/img/RecipeBookLogin.jpg">
+</html>
+
 ## Technologies Used
 * _Github_
 * _VSCode_

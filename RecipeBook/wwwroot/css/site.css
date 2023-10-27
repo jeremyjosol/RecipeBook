@@ -27,7 +27,7 @@ body {
 
 a {
   text-decoration: none;
-  color: rgb(255, 255, 255);
+  color: rgb(255, 166, 0);
 }
 
 a:hover {
@@ -39,8 +39,9 @@ a:hover {
   max-width: 100%;
   margin: auto;
   margin-top: 100px;
-  background-color: rgba(0, 0, 0, 0.477);
-  border-radius: 25px;
+  padding-top: 20px;
+  background-color: rgba(0, 0, 0, 0.718);
+  border-radius: 8px;
 }
 
 table {
@@ -72,5 +73,5 @@ footer {
 
 .nav-item {
   margin: auto;
-  margin-left: 25px;
+  margin-left: 100px;
 }

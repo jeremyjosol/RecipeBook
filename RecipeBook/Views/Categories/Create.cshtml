@@ -7,8 +7,8 @@
 <h4>Add a new category</h4>
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
-  <input type="submit" value="Add new category" />
+  @Html.TextBoxFor(model => model.Name, new { placeholder = "Category Name", @class = "form-control" })
+  <input class="btn btn-dark type="submit" value="Add Category" />
 }
+<br />
 <p>@Html.ActionLink("Show all categories", "Index")</p>
